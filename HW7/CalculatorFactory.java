@@ -1,22 +1,8 @@
 package HW7;
 
-import src.calculator.CalculatorFactorable;
-import src.calculator.ComplexCalculable;
-import src.calculator.ComplexNumberCalculator;
-import src.loggers.Loggable;
-
-public class LogCalculatorFactory implements CalculatorFactorable {
-
-    private CalculatorFactorable primaryFactory;
-    private Loggable logger;
-
-    public LogCalculatorFactory(CalculatorFactorable primaryFactory, Loggable logger){
-        this.primaryFactory = primaryFactory;
-        this.logger = logger;
-    }
-
+public class CalculatorFactory implements ICalculatorFactorable {
     @Override
-    public ComplexCalculable create(ComplexNumberCalculator primaryArg) {
-        return new LogComplexCalculator(primaryFactory.create(primaryArg), logger);
+    public ComplexCalculable create(ComplexNumberCalculator primaryArg){
+        return new ComplexCalculator(primaryArg);
     }
 }
